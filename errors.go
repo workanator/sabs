@@ -19,3 +19,21 @@ type ErrResourceShutdownFailure struct {
 func (e ErrResourceShutdownFailure) Error() string {
 	return "resource shutdown failure: " + fmt.Sprint(e.ID) + ", " + e.Reason.Error()
 }
+
+type ErrJobStartFailure struct {
+	ID     interface{}
+	Reason error
+}
+
+func (e ErrJobStartFailure) Error() string {
+	return "job start failure: " + fmt.Sprint(e.ID) + ", " + e.Reason.Error()
+}
+
+type ErrJobStopFailure struct {
+	ID     interface{}
+	Reason error
+}
+
+func (e ErrJobStopFailure) Error() string {
+	return "job stop failure: " + fmt.Sprint(e.ID) + ", " + e.Reason.Error()
+}
